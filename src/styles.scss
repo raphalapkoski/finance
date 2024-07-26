@@ -1,1 +1,78 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import 'ngx-toastr/toastr';
+@import 'variables.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $azure;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+
+  &-center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+
+  input {
+    width: 300px;
+    height: 40px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: $saphire-blue;
+
+    &::placeholder {
+      color: $saphire-blue;
+    }
+
+    &:focus {
+      outline-color: $saphire-blue;
+    }
+  }
+
+  button {
+    width: 200px;
+    height: 40px;
+    border-radius: 0.5rem;
+    color: $azure;
+    border: none;
+    background-color: $saphire-blue;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+    }
+
+    &:enabled:hover {
+      background-color: $celadon-blue;
+      transition: 500ms;
+    }
+  }
+
+  p,
+  a {
+    font-size: 12px;
+    color: $saphire-blue;
+  }
+
+  a {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}

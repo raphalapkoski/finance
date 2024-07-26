@@ -1,0 +1,13 @@
+<header>
+  <img src="banner.png" />
+  <h1>Sign-up</h1>
+</header>
+<form class="form-signin">
+  <input name="input-first-name" placeholder="Nome" formControlName="first-name" />
+  <input name="input-last-name" placeholder="Sobrenome" formControlName="last-name" />
+  <input name="input-email" placeholder="E-mail" formControlName="email" />
+  <input name="input-password" placeholder="Senha" formControlName="password" />
+  <input name="input-confirm-password" placeholder="Confirme sua senha" formControlName="confirm-password" />
+  <button>SALVAR</button>
+  <a (click)="executeFlipEmitter()">Cancelar</a>
+</form>

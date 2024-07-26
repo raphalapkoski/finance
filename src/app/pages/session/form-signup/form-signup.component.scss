@@ -1,0 +1,25 @@
+@import 'variables.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: $saphire-blue;
+    }
+
+    img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+  }
+}

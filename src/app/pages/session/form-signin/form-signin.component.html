@@ -1,0 +1,10 @@
+<header>
+  <img src="banner.png" />
+  <h1>Sign-in</h1>
+</header>
+<form class="form-signin" [formGroup]="formCredentials">
+  <input name="input-user" placeholder="Usuário" formControlName="username" #username />
+  <input name="input-password" placeholder="Senha" formControlName="password" type="password" />
+  <button (click)="executeSigninEmitter()" [disabled]="formCredentials.invalid">ENTRAR</button>
+  <p>Ainda não possui conta? <a (click)="executeFlipEmitter()">Cadastre-se</a></p>
+</form>
