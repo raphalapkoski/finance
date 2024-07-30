@@ -7,17 +7,16 @@ import { SessionService } from '../../services/session.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  private sessionService = inject(SessionService);
   private router = inject(Router);
 
   executeLogoff() {
-    sessionStorage.removeItem('token');
+    this.sessionService.logout();
     this.router.navigate(['session']);
   }
 }

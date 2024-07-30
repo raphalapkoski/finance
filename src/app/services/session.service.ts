@@ -20,6 +20,11 @@ export class SessionService {
       }));
   }
 
+  logout() {
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('id');
+  }
+
   register(register: Register) {
     return this.httpClient.post<AuthenticateResponse>(`${environment.api}/sign-up`, register);
   }
