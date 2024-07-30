@@ -3,24 +3,28 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { AuthenticateResponse } from '../types/authenticate-response.type';
 import { Credentials } from '../types/credentials.type';
-import { take, tap } from 'rxjs';
+import { tap } from 'rxjs';
+import { Register } from '../types/register.type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
-  private url = `${environment.api}/authentication`;
   private httpClient = inject(HttpClient);
 
   authenticate(credentials: Credentials) {
-    return this.httpClient.post<AuthenticateResponse>(this.url, credentials)
-      .pipe(take(1))
+    return this.httpClient.post<AuthenticateResponse>(`${environment.api}/authentication`, credentials)
       .pipe(tap((value) => {
-        sessionStorage.setItem('token', value.accessToken);
+        sessionStorage.setItem('user', value.username);
+        sessionStorage.setItem('id', value.id);
       }));
   }
 
+  register(register: Register) {
+    return this.httpClient.post<AuthenticateResponse>(`${environment.api}/sign-up`, register);
+  }
+
   isAuthenticate() {
-    return sessionStorage.getItem('token');
+    return sessionStorage.getItem('user');
   }
 }

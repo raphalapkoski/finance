@@ -2,12 +2,11 @@
   <img src="banner.png" />
   <h1>Sign-up</h1>
 </header>
-<form class="form-signin">
-  <input name="input-first-name" placeholder="Nome" formControlName="first-name" />
-  <input name="input-last-name" placeholder="Sobrenome" formControlName="last-name" />
+<form class="form-signin" [formGroup]="formRegister">
+  <input name="input-first-name" placeholder="Nome" formControlName="firstName" />
+  <input name="input-last-name" placeholder="Sobrenome" formControlName="lastName" />
   <input name="input-email" placeholder="E-mail" formControlName="email" />
-  <input name="input-password" placeholder="Senha" formControlName="password" />
-  <input name="input-confirm-password" placeholder="Confirme sua senha" formControlName="confirm-password" />
-  <button>SALVAR</button>
+  <input name="input-password" placeholder="Senha" formControlName="password" type="password" />
+  <button (click)="executeRegisterEmitter()" [disabled]="formRegister.invalid">SALVAR</button>
   <a (click)="executeFlipEmitter()">Cancelar</a>
 </form>

@@ -4,8 +4,8 @@ import { FormSigninComponent } from "./form-signin/form-signin.component";
 import { FormSignupComponent } from "./form-signup/form-signup.component";
 import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs';
 import { Credentials } from '../../types/credentials.type';
+import { Register } from '../../types/register.type';
 
 @Component({
   selector: 'app-session',
@@ -45,6 +45,14 @@ export class SessionComponent {
     this.sessionSerrvice.authenticate(credentials)
       .subscribe({
         next: () => this.router.navigate(['home']),
+        error: (error) => console.log(error)
+      })
+  }
+
+  executeRegister(register: Register) {
+    this.sessionSerrvice.register(register)
+      .subscribe({
+        next: () => this.redirectToSignUp(),
         error: (error) => console.log(error)
       })
   }

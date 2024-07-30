@@ -1,3 +1,4 @@
 export type AuthenticateResponse = {
-  accessToken: string
+  id: string,
+  username: string
 }
