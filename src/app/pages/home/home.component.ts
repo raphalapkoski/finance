@@ -1,8 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { SessionService } from '../../services/session.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +8,4 @@ import { SessionService } from '../../services/session.service';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  private sessionService = inject(SessionService);
-  private router = inject(Router);
-
-  executeLogoff() {
-    this.sessionService.logout();
-    this.router.navigate(['session']);
-  }
 }
