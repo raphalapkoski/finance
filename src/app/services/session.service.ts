@@ -14,11 +14,10 @@ export class SessionService {
   private authenticated$ = new BehaviorSubject<boolean>(!!sessionStorage.getItem('user'));
 
   authenticate(credentials: Credentials) {
-    return this.httpClient.post<AuthenticateResponse>(`${environment.api}/authentication`, credentials)
+    return this.httpClient.get<Array<AuthenticateResponse>>(`${environment.api}/authentication`)
       .pipe(tap((value) => {
         this.authenticated$.next(true);
-        sessionStorage.setItem('user', value.username);
-        sessionStorage.setItem('id', value.id);
+        sessionStorage.setItem('user', credentials.username);
       }));
   }
 
